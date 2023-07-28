@@ -1,0 +1,48 @@
+<%= form_with(model: reserva) do |form| %>
+  <% if reserva.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reserva.errors.count, "erro") %> - Reserva não foi salva.</h2>
+
+      <ul>
+        <% reserva.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Hóspede</span>
+    <%= collection_select(:reserva, :hospede_id, Hospede.all, :id, :nome)%>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Hotel</span>
+    <%= collection_select(:reserva, :hotel_id, Hotel.all, :id, :nome)%>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Quarto</span>
+    <%= collection_select(:reserva, :quarto_id, Quarto.all, :id, :num)%>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Tipo/Diária</span>
+    <%= collection_select(:reserva, :tipo_id, Tipo.all, :id, :quarto)%>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Início</span>
+    <%= form.date_field :inicio, class:"form-control", placeholder:"Início" %> 
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Fim</span>
+    <%= form.date_field :fim, class:"form-control", placeholder:"Fim" %>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <%= form.submit 'Salvar', class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+    <%= link_to "Voltar às Reservas", reservas_path, class:"btn btn-warning btn-sm text-white" %>
+  </div>
+<% end %>

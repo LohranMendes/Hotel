@@ -1,0 +1,23 @@
+<%= form_with(model: quarto) do |form| %>
+  <% if quarto.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(quarto.errors.count, "erro") %> - Quarto não salvo.</h2>
+
+      <ul>
+        <% quarto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Número</span>
+    <%= form.number_field :num, class:"form-control", placeholder:"Número" %>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <%= form.submit 'Salvar', class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+    <%= link_to "Voltar aos Quartos", quartos_path, class:"btn btn-warning btn-sm text-white" %>
+  </div>
+<% end %>

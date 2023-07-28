@@ -1,0 +1,16 @@
+<%= fields = [:id, :nome, :Descricao].join(";")%>
+<% @hoteis.each do |hotel|%>
+<% id = hotel.id %>
+<% nome = hotel.nome %>
+<% endereco = hotel.endereco%>
+<%= [id.to_s, nome, endereco].join(";")%>
+<% end %>
+
+<%= fields = [:id, :nome, :idade, :CPF].join(";")%>
+<% @hospedes.each do |hospede|%>
+<% id = hospede.id %>
+<% nome = hospede.nome %>
+<% idade = hospede.idade%>
+<% cpf = hospede.CPF%>
+<%= [id.to_s, nome, idade.to_s, cpf].join(";")%>
+<% end %>

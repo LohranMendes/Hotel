@@ -1,0 +1,27 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-center">
+      <h2 class="text-primary">Reenvio de instruções de desbloqueio</h2>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field form-group">
+    <br />
+      <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="actions d-flex justify-content-end">
+      <%= f.submit "Reenviar Instruções de Desbloqueio", class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,43 @@
+
+
+<div class="d-flex justify-content-center">
+  <h1 class="text-primary">Reservas</h1>
+</div>
+<br>
+
+<table class="table">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Hóspede</th>
+      <th scope="col">Hotel</th>
+      <th scope="col">Número do Quarto</th>
+      <th scope="col">Tipo/Diária</th>
+      <th scope="col">Inicio</th>
+      <th scope="col">Fim</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <div id="reservas">
+      <% @reservas.each do |reserva| %>
+        <tr>
+          <td> <%= reserva.hospede.nome %> </td>
+          <td> <%= reserva.hotel.nome %> </td>
+          <td> <%= reserva.quarto.num %> </td>
+          <td> <%= reserva.tipo.quarto %> </td>
+          <td> <%= reserva.inicio %> </td>
+          <td> <%= reserva.fim %> </td>
+          <td> <%= link_to "Ficha", reserva, class:"btn btn-outline-info btn-sm" %> </td>
+          <td><%= button_to "Excluir", reserva, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-outline-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+      </div>
+    </tr>
+  </tbody>
+</table>
+<%= link_to "Baixar PDF", generate_path, class:"btn btn-success"  %>
+<%= link_to "Nova Reserva", new_reserva_path, class:"btn btn-outline-primary" %>
+
+<p class="d-flex justify-content-end" style="color: green"><%= notice %></p>
+<%= paginate @reservas %>

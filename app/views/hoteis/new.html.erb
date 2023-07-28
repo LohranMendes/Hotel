@@ -1,0 +1,15 @@
+<br>
+<br>
+
+<% if user_signed_in? %>
+
+<div class="card">
+  <div class="d-flex justify-content-center">
+    <h1 class="text-primary">Novo Hotel</h1>
+  </div>
+  <div class="card-body">
+    <%= render "form", hotel: @hotel %>
+  </div>
+</div>
+
+<% end %>

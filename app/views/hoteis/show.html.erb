@@ -1,0 +1,56 @@
+
+<br>
+<br>
+
+<% if user_signed_in? %>
+
+  <div class="d-flex justify-content-center">
+    <h1 class="text-primary">Ficha de Hotel</h1>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <div class="jumbotron">
+    <h1 class="display-4">
+      <%= @hotel.nome %>
+    </h1>
+    <p class="lead">
+      Endereço: <%= @hotel.endereco %>
+    </p>
+  </div>
+  <br/>
+
+  <div class="d-flex justify-content-end">
+    <%= link_to "Editar", edit_hotel_path(@hotel), class:"btn btn-warning btn-sm text-white" %> &nbsp | &nbsp
+    <%= link_to "Voltar", hoteis_path, class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+    <%= button_to "Excluir", @hotel, method: :delete, class: "btn btn-danger btn-sm" %>
+  </div>
+
+  <p class="d-flex justify-content-begin" style="color: green"><%= notice %></p>
+
+<% else %>
+
+  <div class="d-flex justify-content-center">
+    <h1 class="text-primary">Ficha de Hotel</h1>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <div class="jumbotron">
+    <h1 class="display-4">
+      <%= @hotel.nome %>
+    </h1>
+    <p class="lead">
+      Endereço: <%= @hotel.endereco %>
+    </p>
+  </div>
+  <br/>
+
+  <div class="d-flex justify-content-end">
+    <%= link_to "Voltar", hoteis_path, class:"btn btn-success btn-sm" %>
+  </div>
+
+  <p class="d-flex justify-content-begin" style="color: green"><%= notice %></p>
+<% end %>

@@ -1,0 +1,26 @@
+
+
+<br>
+<br>
+
+<div class="d-flex justify-content-center">
+  <h1 class="text-primary">Ficha do Quarto</h1>
+</div>
+<br>
+<br>
+<br>
+
+<div class="jumbotron">
+  <h1 class="display-4">
+   Número do Quarto: <%= @quarto.num %>
+  </h1>
+</div>
+<br/>
+ 
+<div class="d-flex justify-content-end">
+  <%= link_to "Editar", edit_quarto_path(@quarto), class:"btn btn-warning btn-sm text-white" %> &nbsp | &nbsp
+  <%= link_to "Voltar", quartos_path, class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+  <%= button_to "Excluir", @quarto, method: :delete, class: "btn btn-danger btn-sm" %>
+</div>
+
+<p class="d-flex justify-content-begin" style="color: green"><%= notice %></p>

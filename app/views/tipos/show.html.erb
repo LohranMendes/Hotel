@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<br>
+<br>
+
+<div class="d-flex justify-content-center">
+  <h1 class="text-primary">Ficha do Tipo/Diária</h1>
+</div>
+<br>
+<br>
+<br>
+
+<div class="jumbotron">
+  <h1 class="display-4">
+   <%= @tipo.quarto %>
+  </h1>
+</div>
+<br/>
+
+<div class="d-flex justify-content-end">
+  <%= link_to "Editar", edit_tipo_path(@tipo), class:"btn btn-warning btn-sm text-white" %> &nbsp | &nbsp
+  <%= link_to "Voltar", tipos_path, class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+  <%= button_to "Excluir", @tipo, method: :delete, class: "btn btn-danger btn-sm" %>
+</div>
+
+<p class="d-flex justify-content-begin" style="color: green"><%= notice %></p>

@@ -1,0 +1,40 @@
+<br>
+<br>
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-center">
+      <h1 class="text-primary">Entrar na Sessão</h1>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field form-group">
+        <br />
+        <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field form-group"><br />
+        <%= f.password_field :password, class:"form-control", placeholder:"Senha", autocomplete: "current-password" %> <br/>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <div class="d-flex">
+            <%= f.check_box :remember_me %>
+            <%= f.label "Lembre-se de mim", class:"p-1 flex-grow-1" %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      <% end %>
+
+      <br>
+
+      <div class="actions d-flex justify-content-end">
+        <%= f.submit "Entrar", class:"btn btn-success btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

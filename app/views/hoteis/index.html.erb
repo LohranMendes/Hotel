@@ -1,0 +1,68 @@
+
+
+<% if user_signed_in? %>
+
+  <div class="d-flex justify-content-center">
+    <h1 class="text-primary">Hotéis</h1>
+  </div>
+  <br>
+
+  <div>
+  <table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Endereço/Contato</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @hoteis.each do |hoteis| %>
+          <tr>
+            <td> <%= hoteis.nome %> </td>
+            <td> <%= hoteis.endereco %> </td>
+            <td><%= link_to "Ficha", hoteis, class:"btn btn-outline-info btn-sm" %></td>
+            <td><%= button_to "Excluir",hoteis, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-outline-danger btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <%= link_to "Baixar CSV", hoteis_path(format: :csv), class:"btn btn-success" %>
+  <%= link_to "Novo Hotel", new_hotel_path, class:"btn btn-outline-primary" %>
+
+  <p class="d-flex justify-content-end" style="color: green"><%= notice %></p>
+
+<% else %>  
+
+<div class="d-flex justify-content-center">
+    <h1 class="text-primary">Hotéis</h1>
+  </div>
+  <br>
+
+  <div>
+  <table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Endereço</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @hoteis.each do |hoteis| %>
+          <tr>
+            <td> <%= hoteis.nome %> </td>
+            <td> <%= hoteis.endereco %> </td>
+            <td><%= link_to "Ficha", hoteis, class:"btn btn-outline-info btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+<% end %>
+<%= paginate @hoteis %>

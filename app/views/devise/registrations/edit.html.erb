@@ -1,0 +1,50 @@
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-center">
+      <h2 class="text-primary">Editar Perfil </h2>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field form-group">
+    <br />
+    <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Aguardando confirmação para: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <% if @minimum_password_length %>
+    <% end %><br />
+    <%= f.password_field :password, class:"form-control", placeholder:"Senha com mínimo de 6 caracteres (Deixe em branco se não quiser mudar)", autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <br />
+    <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Confirmação de Senha", autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <br />
+    <%= f.password_field :current_password, class:"form-control", placeholder:"Senha atual (Precisamos de sua senha atual para confirmar suas alterações)", autocomplete: "current-password" %>
+  </div>
+
+  <br>
+
+  <div class="actions d-flex mb-3">
+    <div class="p-2"><%= f.submit "Salvar", class:"btn btn-success btn-sm" %> &nbsp | &nbsp</div>
+    <div class="p-2"><%= link_to "Voltar", :back, class:"btn btn-warning btn-sm text-white" %></div>
+  </div>
+<% end %>
+  </div>
+</div>
+<br>
+<div class="d-flex justify-content-end">
+ <p class="text-danger">Quer cancelar a conta? &nbsp | &nbsp <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger btn-sm" %></p></div>
+
+    

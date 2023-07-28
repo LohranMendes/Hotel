@@ -1,0 +1,23 @@
+<%= form_with(model: tipo) do |form| %>
+  <% if tipo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tipo.errors.count, "erro") %> - Tipo/Diária não foi salva.</h2>
+
+      <ul>
+        <% tipo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Tipo/Diária</span>
+    <%= form.text_field :quarto, class:"form-control", placeholder:"Tipo/Diária" %>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <%= form.submit 'Salvar', class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+    <%= link_to "Voltar aos Quartos", tipos_path, class:"btn btn-warning btn-sm text-white" %>
+  </div>
+<% end %>

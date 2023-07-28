@@ -1,0 +1,30 @@
+<%= form_with(model: hotel) do |form| %>
+  <% if hotel.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(hotel.errors.count, "erro") %> - Hotel não foi salvo.</h2>
+
+      <ul>
+        <% hotel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Nome</span>
+    <%= form.text_field :nome, class:"form-control", placeholder:"Nome" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Endereco</span>
+    <%= form.text_field :endereco, class:"form-control", placeholder:"Endereço" %>
+  </div>
+
+  <br>
+
+  <div class="d-flex justify-content-end">
+    <%= form.submit 'Salvar', class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+    <%= link_to "Voltar aos Hotéis", hoteis_path, class:"btn btn-warning btn-sm text-white" %>
+  </div>
+<% end %>

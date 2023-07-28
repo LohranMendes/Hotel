@@ -1,0 +1,36 @@
+
+
+<div class="d-flex justify-content-center">
+  <h1 class="text-primary">Hospedes</h1>
+</div>
+<br>
+
+<div>
+<table class="table">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Idade</th>
+      <th scope="col">CPF</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @hospedes.each do |hospede| %>
+        <tr>
+          <td> <%= hospede.nome %> </td>
+          <td> <%= hospede.idade %> </td>
+          <td> <%= hospede.CPF %> </td>
+          <td><%= link_to "Ficha", hospede, class:"btn btn-outline-info btn-sm" %></td>
+          <td><%= button_to "Excluir", hospede, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-outline-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+  <%=  link_to  'Novo Hóspede',  new_hospede_path, class:"btn btn-outline-primary" %>
+
+  <p class="d-flex justify-content-end" style="color: green"><%= notice %></p>

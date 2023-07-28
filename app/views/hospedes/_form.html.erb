@@ -1,0 +1,33 @@
+<%= form_with(model: hospede) do |form| %>
+  <% if hospede.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(hospede.errors.count, "erro") %> - Hóspede não salvo.</h2>
+
+      <ul>
+        <% hospede.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Nome</span>
+    <%= form.text_field :nome, class:"form-control", placeholder:"Nome" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Idade</span>
+    <%= form.number_field :idade, class:"form-control", placeholder:"Idade" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">CPF</span>
+    <%= form.text_field :CPF, class:"form-control", placeholder:"CPF" %>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <%= form.submit 'Salvar', class:"btn btn-success btn-sm" %> &nbsp | &nbsp
+    <%= link_to "Voltar aos Hóspedes", hospedes_path, class:"btn btn-warning btn-sm text-white" %>
+  </div>
+<% end %>

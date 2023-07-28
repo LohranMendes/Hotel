@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center">
+  <h1 class="text-primary">Quartos</h1>
+</div>
+<br>
+
+<div>
+<table class="table">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">Número do Quarto</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <div id="quartos">
+      <% @quartos.each do |quarto| %>
+        <tr>
+          <td> <%= quarto.num %> </td>
+          <td><%= link_to "Ficha", quarto, class:"btn btn-outline-info btn-sm" %></td>
+          <td><%= button_to "Excluir", quarto, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-outline-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+      </div>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<%= link_to "Novo Quarto", new_quarto_path, class:"btn btn-outline-primary" %>
+
+<p class="d-flex justify-content-end" style="color: green"><%= notice %></p>
+ 
